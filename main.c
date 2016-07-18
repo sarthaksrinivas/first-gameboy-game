@@ -61,7 +61,6 @@ int main() {
         if (KEY_DOWN_NOW(BUTTON_UP)) {
             x_old = x;
             y_old = y;
-            // x--;
             x = (x - 1 < 0) ? 0 : x - 1;
             drawBall(x_old, y_old, WHITE);
             drawBall(x, y, BLACK); // (re)draws ball            
@@ -69,15 +68,13 @@ int main() {
         if (KEY_DOWN_NOW(BUTTON_DOWN)) {
             x_old = x;
             y_old = y;
-            //x++;
-            x = (x + BALL_HEIGHT + 1 > 160) ? 160 - BALL_HEIGHT : x + 1;
+            x = (x + BALL_HEIGHT + 1 > GBA_HEIGHT) ? GBA_HEIGHT - BALL_HEIGHT : x + 1;
             drawBall(x_old, y_old, WHITE); // clears ball
             drawBall(x, y, BLACK); // (re)draws ball            
 		}
         if (KEY_DOWN_NOW(BUTTON_LEFT)) {
             x_old = x;
             y_old = y;
-            // y--;
             y = (y - 1 < 0) ? 0 : y - 1;
             drawBall(x_old, y_old, WHITE); // clears ball
             drawBall(x, y, BLACK); // (re)draws ball            
@@ -85,8 +82,7 @@ int main() {
         if (KEY_DOWN_NOW(BUTTON_RIGHT)) {
             x_old = x;
             y_old = y;
-            //y++;
-            y = (y + BALL_WIDTH + 1 > 240) ? 240 - BALL_WIDTH : y + 1;
+            y = (y + BALL_WIDTH + 1 > GBA_WIDTH) ? GBA_WIDTH - BALL_WIDTH : y + 1;
             drawBall(x_old, y_old, WHITE); // clears ball
             drawBall(x, y, BLACK); // (re)draws ball
 		}

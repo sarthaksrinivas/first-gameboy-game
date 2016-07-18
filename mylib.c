@@ -119,6 +119,7 @@ void drawTrolls() {
     /* } */
     drawImage3(20, 20, TROLL_WIDTH, TROLL_HEIGHT, troll_data);
 
+
 }
 
 void drawBall(int x, int y, volatile u16 color) {
