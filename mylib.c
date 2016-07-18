@@ -54,6 +54,10 @@
 
 ///////////////////////////////////
 #include "mylib.h"
+#include "title.h"
+#include "over.h"
+#include "troll.h"
+#include "ball.h"
 
 u16 *videoBuffer = (u16 *) 0x6000000;
 
@@ -79,7 +83,7 @@ void drawImage3(int r, int c, int width, int height, const u16* image) {
 	}
 }
 
-void drawRect3(int r, int c, int width, int height, u16 color) {
+void drawRect3(int r, int c, int width, int height, volatile u16 color) {
 	for (int x = 0; x < height; x++) {
 		DMA[3].src = &color;
 		DMA[3].dst = &videoBuffer[OFFSET(r + x, c, 240)];
@@ -97,4 +101,20 @@ void delay(int n){
 	for(int i=0; i<5000*n; i++)	{
 		x = x + 1;
 	}
+}
+
+void drawTitle() {
+    drawImage3(0, 0, TITLE_WIDTH, TITLE_HEIGHT, title_data);
+}
+
+void drawOver() {
+    drawImage3(0, 0, OVER_WIDTH, OVER_HEIGHT, over_data);
+}
+
+void drawTrolls() {
+    drawImage3(125, 80, TROLL_WIDTH, TROLL_HEIGHT, troll_data);
+}
+
+void drawBall(int x, int y, volatile u16 color) {
+    drawRect3(x, y, BALL_WIDTH, BALL_HEIGHT, color);
 }

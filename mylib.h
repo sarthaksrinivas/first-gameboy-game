@@ -101,7 +101,8 @@ typedef unsigned int u32;
 #define KEY_DOWN_NOW(key)  (~(BUTTONS) & key)
 #define BUTTONS *(volatile unsigned int *)0x4000130
 #define SCANLINECOUNTER *(volatile short *)0x4000006
-
+#define GBA_WIDTH 240
+#define GBA_HEIGHT 160
 
 extern unsigned short *videoBuffer; 
 
@@ -114,6 +115,7 @@ extern unsigned short *videoBuffer;
 #define BLACK 0
 
 #define OFFSET(r,c,rowlen) ((r)*(rowlen) + (c))
+
 
 // Buttons
 #define BUTTON_A		(1<<0)
@@ -179,10 +181,17 @@ typedef struct
 #define DMA_IRQ (1 << 30)
 #define DMA_ON (1 << 31)
 
+// fast function definitions
+#define clearScreen() drawRect3(0, 0, GBA_WIDTH, GBA_HEIGHT, WHITE)
+
 // Prototype
 void setPixel(int r, int c, u16 color);
 void drawRect(int r, int c, int width, int height, u16 color);
 void drawImage3(int r, int c, int width, int height, const u16* image);
-void drawRect3(int r, int c, int width, int height, u16 color);
+void drawRect3(int r, int c, int width, int height, volatile u16 color);
 void waitForVblank();
 void delay(int);
+void drawTitle();
+void drawOver();
+void drawTrolls();
+void drawBall(int x, int y, volatile u16 color);

@@ -11,12 +11,12 @@ PROGNAME = 2directions
 
 # The object files you want to compile into your program
 # This should be a space (SPACE!) separated list of .o files
-OFILES = main.o mylib.o title.o over.o
+OFILES = main.o mylib.o title.o over.o ball.o troll.o
 
 # The header files you have created.
 # This is necessary to determine when to recompile for files.
 # This should be a space (SPACE!) separated list of .h files
-HFILES = main.h mylib.h title.h over.h
+HFILES = main.h mylib.h title.h over.h ball.h troll.h
 
 ################################################################################
 # These are various settings used to make the GBA toolchain work
