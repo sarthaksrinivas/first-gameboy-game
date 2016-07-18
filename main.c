@@ -51,7 +51,7 @@ int main() {
 		}
         if (KEY_DOWN_NOW(BUTTON_START)) {
             clearScreen();
-            drawTrolls(); // draw n^2 trolls
+            drawTrolls(num_trolls); // draw n^2 trolls
             x_old = x;
             y_old = y;
             x += 5;

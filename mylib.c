@@ -111,15 +111,30 @@ void drawOver() {
     drawImage3(0, 0, OVER_WIDTH, OVER_HEIGHT, over_data);
 }
 
-void drawTrolls() {
+void drawTrolls(int n) {
     /* for (int r = 0; r < n; r++) { */
     /*     DMA[3].src = troll_data; */
     /*     DMA[3].dst = &videoBuffer[(240 * y) + (x * 20) + (240 * r)]; */
     /*     DMA[3].cnt = n | DMA_SOURCE_FIXED | DMA_ON; */
     /* } */
-    drawImage3(20, 20, TROLL_WIDTH, TROLL_HEIGHT, troll_data);
+    // drawImage3(20, 20, TROLL_WIDTH, TROLL_HEIGHT, troll_data);
 
-
+    /* int x_init = (GBA_WIDTH + TROLL_WIDTH) / n; */
+    /* int y_init = (GBA_HEIGHT + TROLL_HEIGHT) / n; */
+    /* for (int i = 0; i < n * n; i++) { */
+    /*     DMA[3].src= &troll_data; */
+    /*     DMA[3].dst = &videoBuffer[(240 * y_init) + (x_init * i) + (240 * i)]; */
+    /*     DMA[3].cnt = n | DMA_SOURCE_FIXED | DMA_ON; */
+    /* } */
+    int space_width = (GBA_WIDTH - TROLL_WIDTH * n) / (n + 1);
+    int space_height = (GBA_HEIGHT - TROLL_HEIGHT * n) / (n + 1);    
+    int x = space_width;
+    int y = space_height;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            drawImage3(y + (space_height + TROLL_HEIGHT) * i, x + (space_width + TROLL_WIDTH) * j, TROLL_WIDTH, TROLL_HEIGHT, troll_data);
+        }
+    }
 }
 
 void drawBall(int x, int y, volatile u16 color) {

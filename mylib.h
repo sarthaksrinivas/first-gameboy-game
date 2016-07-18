@@ -184,6 +184,9 @@ typedef struct
 // fast function definitions
 #define clearScreen() drawRect3(0, 0, GBA_WIDTH, GBA_HEIGHT, WHITE)
 
+// constants
+#define num_trolls 4
+
 // Prototype
 void setPixel(int r, int c, u16 color);
 void drawRect(int r, int c, int width, int height, u16 color);
