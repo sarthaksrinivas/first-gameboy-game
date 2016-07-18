@@ -112,7 +112,13 @@ void drawOver() {
 }
 
 void drawTrolls() {
-    drawImage3(125, 80, TROLL_WIDTH, TROLL_HEIGHT, troll_data);
+    /* for (int r = 0; r < n; r++) { */
+    /*     DMA[3].src = troll_data; */
+    /*     DMA[3].dst = &videoBuffer[(240 * y) + (x * 20) + (240 * r)]; */
+    /*     DMA[3].cnt = n | DMA_SOURCE_FIXED | DMA_ON; */
+    /* } */
+    drawImage3(20, 20, TROLL_WIDTH, TROLL_HEIGHT, troll_data);
+
 }
 
 void drawBall(int x, int y, volatile u16 color) {
