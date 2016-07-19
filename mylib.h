@@ -94,7 +94,7 @@ typedef struct
 #define collide(L1X,L1Y,R1X,R1Y,L2X,L2Y,R2X,R2Y,answer) ((answer) = ((L1X) < (R2X) && (R1X) > (L2X) && (L1Y) < (R2Y) && (R1Y) > (L2Y)) ? 1 : 0)
 
 // constants
-#define num_trolls 3
+#define num_trolls 5
 
 // Prototype
 void setPixel(int r, int c, u16 color);

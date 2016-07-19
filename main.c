@@ -13,12 +13,12 @@ int main() {
         drawTitle();
 
     // game constants
-    int x = 20; // default starting value is 100
-    int y = 20; // default starting value is 100
+    int x = 0; // default starting value is 100
+    int y = 0; // default starting value is 100
     int x_old = x;
     int y_old = y;
     int ans = 0;
-    volatile int state = 1; // state 0 is game over, 1 is game happening
+    int state = 1; // state 0 is game over, 1 is game happening
 
 	while (1) {
             int space_width = (GBA_WIDTH - TROLL_WIDTH * num_trolls) / (num_trolls + 1);
@@ -38,10 +38,10 @@ int main() {
             }
             if (KEY_DOWN_NOW(BUTTON_SELECT)) {
                 state = 1;
-                x = 20;
-                y = 20;
-                x_old = 20;
-                y_old = 20;
+                x = 0;
+                y = 0;
+                x_old = 0;
+                y_old = 0;
                 drawTitle();
             }
             if (KEY_DOWN_NOW(BUTTON_START) && state) {
