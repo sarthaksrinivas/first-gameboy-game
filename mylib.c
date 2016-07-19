@@ -1,58 +1,3 @@
-/* #include "mylib.h" */
-
-/* unsigned short *videoBuffer = (unsigned short *)0x6000000; */
-
-/* void setPixel(int row, int col, unsigned short color) */
-/* { */
-/* 	videoBuffer[OFFSET(row, col, 240)] = color; */
-/* } */
-
-/* void drawRect(int row, int col, int height, int width, unsigned short color) */
-/* { */
-/* 	for(int r=0; r<height; r++) */
-/* 	{ */
-/* /\* */
-/* 		for(int c=0; c<width; c++) */
-/* 		{ */
-/* 			setPixel(row+r, col+c, color); */
-/* 		} */
-/* *\/ */
-/* 		DMA[3].src = &color; */
-/* //		DMA[3].dst = &videoBuffer[OFFSET(row+r, col, 240)]; */
-/* 		DMA[3].dst = videoBuffer + OFFSET(row+r, col, 240); */
-/* 		DMA[3].cnt = width | DMA_SOURCE_FIXED | DMA_ON; */
-/* 	} */
-/* } */
-/* /\* */
-/* void drawRect(int row, int col, int height, int width, unsigned short color) */
-/* { */
-/* 	for(int r=0; r<height; r++) */
-/* 	{ */
-/* 		for(int c=0; c<width; c++) */
-/* 		{ */
-/* 			setPixel(row+r, col+c, color); */
-/* 		} */
-/* 	} */
-/* } */
-/* *\/ */
-
-
-/* void delay(int n) */
-/* { */
-/* 	volatile int x = 0; */
-/* 	for(int i=0; i<5000*n; i++) */
-/* 	{ */
-/* 		x = x + 1; */
-/* 	} */
-/* } */
-
-/* void waitForVblank() */
-/* { */
-/* 	while(SCANLINECOUNTER > 160); */
-/* 	while(SCANLINECOUNTER<160); */
-/* } */
-
-///////////////////////////////////
 #include "mylib.h"
 #include "title.h"
 #include "over.h"
@@ -130,7 +75,7 @@ void drawTrolls(int n) {
     int space_height = (GBA_HEIGHT - TROLL_HEIGHT * n) / (n + 1);    
     int x = space_width;
     int y = space_height;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n; j++) {
             drawImage3(y + (space_height + TROLL_HEIGHT) * i, x + (space_width + TROLL_WIDTH) * j, TROLL_WIDTH, TROLL_HEIGHT, troll_data);
         }
