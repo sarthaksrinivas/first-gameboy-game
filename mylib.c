@@ -75,7 +75,7 @@ void drawTrolls(int n) {
     int space_height = (GBA_HEIGHT - TROLL_HEIGHT * n) / (n + 1);    
     int x = space_width;
     int y = space_height;
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             drawImage3(y + (space_height + TROLL_HEIGHT) * i, x + (space_width + TROLL_WIDTH) * j, TROLL_WIDTH, TROLL_HEIGHT, troll_data);
         }

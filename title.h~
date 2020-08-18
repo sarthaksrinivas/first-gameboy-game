@@ -1,3 +1,0 @@
-#define TILE_WIDTH 240
-#define TILE_HEIGHT 160
-const unsigned short tile_data[38400];
